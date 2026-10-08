@@ -70,7 +70,7 @@ export const en: SiteContent = {
         label: 'Experience',
         value: 'Capco · Junior Backend Developer',
         detail:
-          '2025 — Sep 2026, with Node.js and automation. Now building my own projects at Pixel Code.',
+          '2025 — Sep 2026, with Node.js and automation. Now freelancing at Pixel Code.',
         href: '#trajetoria',
       },
       {
@@ -218,8 +218,8 @@ export const en: SiteContent = {
         period: '2025 — present',
         kind: 'work',
         title: 'Pixel Code',
-        subtitle: 'Founder and developer',
-        body: 'My own custom software practice. I handle everything from requirements to deploy, which taught me to think about scope, deadlines and maintenance, not just code.',
+        subtitle: 'Freelancer',
+        body: 'Freelance custom software development. I handle everything from requirements to deploy, which taught me to think about scope, deadlines and maintenance, not just code.',
         highlights: [
           'End-to-end delivery: requirements, development, review and launch.',
           'Automation of operational processes with n8n and a Python pipeline.',

@@ -69,7 +69,7 @@ export const ptBR: SiteContent = {
         label: 'Experiência',
         value: 'Capco · Desenvolvedor Backend Júnior',
         detail:
-          '2025 — set 2026, com Node.js e automação. Hoje, desenvolvo projetos próprios na Pixel Code.',
+          '2025 — set 2026, com Node.js e automação. Hoje, atuo como freelancer na Pixel Code.',
         href: '#trajetoria',
       },
       {
@@ -217,9 +217,8 @@ export const ptBR: SiteContent = {
         period: '2025 — hoje',
         kind: 'work',
         title: 'Pixel Code',
-        // TODO(gustavo): confirme o cargo.
-        subtitle: 'Fundador e desenvolvedor',
-        body: 'Meu projeto próprio de desenvolvimento sob medida. Cuido de tudo, dos requisitos ao deploy, o que me ensinou a pensar em escopo, prazo e manutenção, e não só no código.',
+        subtitle: 'Freelancer',
+        body: 'Desenvolvimento sob medida como freelancer. Cuido de tudo, dos requisitos ao deploy, o que me ensinou a pensar em escopo, prazo e manutenção, e não só no código.',
         highlights: [
           'Entrega de ponta a ponta: requisitos, desenvolvimento, revisão e publicação.',
           'Automação de processos operacionais com n8n e um pipeline em Python.',

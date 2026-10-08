@@ -39,7 +39,6 @@ evitar o limite de 60 requisições/hora.
 
 ### Pendências (procure por `TODO(gustavo)`)
 
-- **Cargo na Pixel Code:** está como "Fundador e desenvolvedor"; confirme nos dois idiomas.
 - **Jogando / Lendo:** campos vazios ficam escondidos.
 - **Domínio:** defina `NEXT_PUBLIC_SITE_URL` (canonical, hreflang, Open Graph, sitemap).
 

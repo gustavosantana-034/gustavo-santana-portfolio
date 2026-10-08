@@ -1,10 +1,10 @@
 {
-  "syncedAt": "2026-10-08T02:25:46.835Z",
+  "syncedAt": "2026-10-08T03:11:15.769Z",
   "profile": {
     "login": "gustavosantana-034",
     "url": "https://github.com/gustavosantana-034",
     "avatarUrl": "https://avatars.githubusercontent.com/u/151932583?v=4",
-    "publicRepos": 18,
+    "publicRepos": 19,
     "followers": 44,
     "memberSince": "2023-11-24T12:39:38Z"
   },
@@ -47,21 +47,49 @@
       "year": 2026,
       "languages": [
         {
+          "name": "TypeScript",
+          "repos": 2
+        },
+        {
           "name": "Go",
           "repos": 1
         },
         {
           "name": "JavaScript",
           "repos": 1
-        },
-        {
-          "name": "TypeScript",
-          "repos": 1
         }
       ]
     }
   ],
   "recentCommits": [
+    {
+      "repo": "gustavo-santana-portfolio",
+      "sha": "95e9f9b",
+      "message": "docs: link the live site and document automatic deploys",
+      "date": "2026-10-08T03:07:53Z",
+      "url": "https://github.com/gustavosantana-034/gustavo-santana-portfolio/commit/95e9f9bf15c90a4294581306f48b3b824fb0baa7"
+    },
+    {
+      "repo": "gustavo-santana-portfolio",
+      "sha": "77c1f82",
+      "message": "fix(a11y): readable locked checkpoints and labels that match visible text",
+      "date": "2026-10-08T02:58:41Z",
+      "url": "https://github.com/gustavosantana-034/gustavo-santana-portfolio/commit/77c1f82ba4e068c75ccca2609e6f037ec1630cff"
+    },
+    {
+      "repo": "gustavo-santana-portfolio",
+      "sha": "d6c8389",
+      "message": "chore: deploy on Vercel as a Next.js project",
+      "date": "2026-10-08T02:53:04Z",
+      "url": "https://github.com/gustavosantana-034/gustavo-santana-portfolio/commit/d6c838968027a9abf050017f709c15c34ef628d3"
+    },
+    {
+      "repo": "gustavo-santana-portfolio",
+      "sha": "e435c6a",
+      "message": "feat: bilingual portfolio with request inspector, journey map and education",
+      "date": "2026-10-08T02:50:19Z",
+      "url": "https://github.com/gustavosantana-034/gustavo-santana-portfolio/commit/e435c6a3cfb188ffc0851b55f630c82a322f9e78"
+    },
     {
       "repo": "GYM-API",
       "sha": "71ef813",
@@ -75,34 +103,6 @@
       "message": "build(backend): print connection diagnostics when migrations fail",
       "date": "2026-10-07T22:54:23Z",
       "url": "https://github.com/gustavosantana-034/GYM-API/commit/3b91290c6047c09a943d49658e9d813a33dcfdc1"
-    },
-    {
-      "repo": "GYM-API",
-      "sha": "00617a1",
-      "message": "fix(backend): survive Neon cold starts during deploy",
-      "date": "2026-10-07T22:50:12Z",
-      "url": "https://github.com/gustavosantana-034/GYM-API/commit/00617a168ec090e159ac34e0397ee9a443a34df4"
-    },
-    {
-      "repo": "fc2.0-ci-go",
-      "sha": "a7d0653",
-      "message": "ci: Change event to pull request branch develop (#1)",
-      "date": "2026-06-24T19:23:26Z",
-      "url": "https://github.com/gustavosantana-034/fc2.0-ci-go/commit/a7d06532600d19a26f691e47862a2dd311d1266d"
-    },
-    {
-      "repo": "fc2.0-ci-go",
-      "sha": "fd98d71",
-      "message": "fix: Added a new check application on yaml file",
-      "date": "2026-06-24T19:02:42Z",
-      "url": "https://github.com/gustavosantana-034/fc2.0-ci-go/commit/fd98d714dad5748cc379a754be0c97cee59e55da"
-    },
-    {
-      "repo": "fc2.0-ci-go",
-      "sha": "7be4141",
-      "message": "fix: Fix test wich was not passing Sum function",
-      "date": "2026-06-24T14:07:37Z",
-      "url": "https://github.com/gustavosantana-034/fc2.0-ci-go/commit/7be414113b3a1dfa81eb629a1461ab6d526fdaa1"
     }
   ]
 }
