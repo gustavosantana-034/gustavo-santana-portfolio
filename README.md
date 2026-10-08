@@ -1,5 +1,7 @@
 # Gustavo Santana · Portfólio
 
+**No ar:** https://gustavo-santana-fullstack-dev.vercel.app · [versão em inglês](https://gustavo-santana-fullstack-dev.vercel.app/en/)
+
 Portfólio pessoal bilíngue (PT-BR em `/`, EN em `/en/`). Next.js com export estático, TypeScript e
 CSS Modules.
 
@@ -92,6 +94,9 @@ src/
   `prefers-reduced-motion` e contraste AA nos dois temas e nos dois idiomas.
 
 ## Deploy
+
+O repositório está ligado ao projeto `gustavo-santana-fullstack-dev` na Vercel: cada push na `main`
+publica o site automaticamente.
 
 Na Vercel, importe o repositório; o framework é detectado sozinho. Em qualquer outro host estático,
 publique a pasta `out/` gerada por `npm run build`.
