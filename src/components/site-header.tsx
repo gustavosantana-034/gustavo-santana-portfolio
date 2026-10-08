@@ -88,11 +88,12 @@ export function SiteHeader({ resume }: { resume: Resume | null }) {
         {t.nav.skip}
       </a>
       <div className={`container ${styles.bar}`}>
-        <a href="#topo" className={styles.brand} aria-label={`${profile.name}, ${t.nav.homeLabel}`}>
+        <a href="#topo" className={styles.brand}>
           <span className={styles.mark} aria-hidden="true">
             g<span>/</span>s
           </span>
           <span className={styles.name}>{profile.name}</span>
+          <span className="visually-hidden">, {t.nav.homeLabel}</span>
         </a>
 
         <nav aria-label={t.nav.label} className={styles.nav} id="menu-principal">

@@ -271,9 +271,16 @@
   }
 }
 
+/* Very narrow screens: the name is hidden visually but stays the link's
+   accessible name. */
 @media (max-width: 25rem) {
   .name {
-    display: none;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
   }
 }
 

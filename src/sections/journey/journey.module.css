@@ -126,9 +126,16 @@
 
 /* Locked state exists only once the map is live: without JS (or with
    reduced motion) every checkpoint is simply visible. */
+/* Locked checkpoints stay fully readable: the dashed border, the empty node
+   and the unfilled path carry the "not reached yet" state, not the text. */
 .map[data-ready='true'] .checkpoint:not([data-unlocked='true']) .card {
-  opacity: 0.4;
+  border-style: dashed;
+  box-shadow: none;
   transform: translateY(10px);
+}
+
+.map[data-ready='true'] .checkpoint:not([data-unlocked='true']) .skills li {
+  filter: grayscale(1);
 }
 
 .checkpoint[data-unlocked='true'] .node {

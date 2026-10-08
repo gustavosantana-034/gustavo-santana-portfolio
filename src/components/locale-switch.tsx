@@ -47,12 +47,12 @@ export function LocaleSwitch() {
           lang={item}
           className={styles.option}
           aria-current={item === locale ? 'true' : undefined}
-          aria-label={t.nav.languageNames[item]}
           onClick={(event) => select(event, item)}
           scroll={false}
           replace
         >
           {shortLabel[item]}
+          <span className="visually-hidden">, {t.nav.languageNames[item]}</span>
         </Link>
       ))}
     </div>
