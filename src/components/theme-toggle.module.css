@@ -1,0 +1,51 @@
+.toggle {
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  transition:
+    border-color var(--duration-fast) ease,
+    background-color var(--duration-fast) ease;
+}
+
+.toggle:hover {
+  border-color: var(--border-strong);
+}
+
+.core {
+  fill: currentColor;
+  transform-origin: center;
+  transition: transform var(--duration) var(--ease-out);
+}
+
+.maskMoon {
+  transition: transform var(--duration) var(--ease-out);
+}
+
+.rays {
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  transform-origin: center;
+  transition:
+    transform var(--duration) var(--ease-out),
+    opacity var(--duration-fast) ease;
+}
+
+/* Dark theme active: show a moon (sun core with a bite taken out). */
+.toggle[data-theme-state='dark'] .core {
+  transform: scale(1.45);
+}
+
+.toggle[data-theme-state='dark'] .maskMoon {
+  transform: translate(-9px, 6px);
+}
+
+.toggle[data-theme-state='dark'] .rays {
+  opacity: 0;
+  transform: rotate(-45deg) scale(0.6);
+}

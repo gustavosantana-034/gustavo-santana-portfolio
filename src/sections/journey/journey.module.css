@@ -1,0 +1,496 @@
+.section {
+  padding-block: var(--space-9);
+}
+
+/* ——— Progress map ——— */
+
+.map {
+  position: relative;
+  --lane: 9rem;
+  --node: 1.1rem;
+}
+
+.path {
+  position: absolute;
+  inset: 0;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.track,
+.fill {
+  fill: none;
+  stroke-linecap: round;
+}
+
+.track {
+  stroke: var(--border-strong);
+  stroke-width: 1.5;
+  stroke-dasharray: 3 6;
+}
+
+.fill {
+  stroke: var(--accent);
+  stroke-width: 2.5;
+  transition: stroke-dashoffset 120ms linear;
+}
+
+.start {
+  position: relative;
+  margin-bottom: var(--space-5);
+  font-family: var(--font-mono);
+  font-size: var(--step--2);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+.checkpoints {
+  position: relative;
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: var(--space-6);
+}
+
+/* Mobile first: one column, the node on the left with a slight sway. */
+.checkpoint {
+  display: grid;
+  grid-template-columns: 2.25rem minmax(0, 1fr);
+  align-items: start;
+  column-gap: var(--space-3);
+}
+
+.node {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: var(--node);
+  height: var(--node);
+  margin-top: 0.15rem;
+  justify-self: center;
+  border: 2px solid var(--border-strong);
+  background: var(--bg);
+  transform: rotate(45deg);
+  font-size: 0.7rem;
+  line-height: 1;
+  color: var(--accent-ink);
+  transition:
+    background-color var(--duration) var(--ease-out),
+    border-color var(--duration) var(--ease-out),
+    transform var(--duration) var(--ease-out);
+}
+
+.checkpoint:nth-child(even) .node {
+  translate: 0.45rem 0;
+}
+
+.checkpoint[data-kind='work'] .node {
+  border-radius: 50%;
+  transform: none;
+}
+
+.checkpoint[data-kind='current'] .node {
+  width: 1.6rem;
+  height: 1.6rem;
+  margin-top: 0;
+  border-radius: 50%;
+  transform: none;
+  font-size: 0.85rem;
+}
+
+.card {
+  display: grid;
+  gap: var(--space-2);
+  min-width: 0;
+  padding: var(--space-4) var(--space-5);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-m);
+  transition:
+    opacity var(--duration-slow) var(--ease-out),
+    transform var(--duration-slow) var(--ease-out),
+    border-color var(--duration) ease;
+}
+
+.checkpoint[data-kind='work'] .card {
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-m);
+}
+
+.checkpoint[data-kind='current'] .card {
+  border-style: dashed;
+  background: var(--bg);
+}
+
+/* Locked state exists only once the map is live: without JS (or with
+   reduced motion) every checkpoint is simply visible. */
+.map[data-ready='true'] .checkpoint:not([data-unlocked='true']) .card {
+  opacity: 0.4;
+  transform: translateY(10px);
+}
+
+.checkpoint[data-unlocked='true'] .node {
+  background: var(--accent);
+  border-color: var(--accent);
+  animation: unlock 420ms var(--ease-out);
+}
+
+.checkpoint[data-unlocked='true'][data-kind='current'] .node::after {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 1px solid var(--accent);
+  animation: beacon 2.4s var(--ease-out) infinite;
+}
+
+@keyframes unlock {
+  50% {
+    scale: 1.35;
+  }
+}
+
+@keyframes beacon {
+  from {
+    opacity: 0.8;
+    scale: 0.8;
+  }
+  to {
+    opacity: 0;
+    scale: 1.7;
+  }
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-2);
+  font-family: var(--font-mono);
+  font-size: var(--step--2);
+  color: var(--text-faint);
+}
+
+.stage {
+  color: var(--accent);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.title {
+  font-size: var(--step-1);
+  letter-spacing: -0.02em;
+}
+
+.checkpoint[data-kind='current'] .title {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: calc(var(--step-1) * 1.2);
+  letter-spacing: -0.01em;
+}
+
+.subtitle {
+  margin-top: -0.25rem;
+  font-size: var(--step--1);
+  color: var(--text-muted);
+}
+
+.body {
+  font-size: var(--step--1);
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.highlights {
+  display: grid;
+  gap: var(--space-1);
+  padding-left: 1.1rem;
+  font-size: var(--step--1);
+  line-height: 1.5;
+}
+
+.highlights li::marker {
+  color: var(--accent);
+}
+
+.unlocked {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+  padding-top: var(--space-2);
+  border-top: 1px dashed var(--border);
+}
+
+.unlockedLabel {
+  font-family: var(--font-mono);
+  font-size: var(--step--2);
+  color: var(--text-faint);
+}
+
+.unlockedLabel::before {
+  content: '+ ';
+  color: var(--accent);
+}
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+}
+
+.skills li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.05rem 0.45rem;
+  font-family: var(--font-mono);
+  font-size: var(--step--2);
+  background: var(--bg-sunken);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-s);
+}
+
+.repos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1) var(--space-3);
+}
+
+.repos a {
+  font-family: var(--font-mono);
+  font-size: var(--step--2);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+
+.repos a::before {
+  content: '↳ ';
+  color: var(--text-faint);
+}
+
+.repos a:hover {
+  color: var(--accent);
+}
+
+/* Desktop: a central lane the path snakes through, cards on alternating
+   sides and staggered so the stages overlap a little in height. */
+@media (min-width: 60rem) {
+  /* Aligned with the lane, where the path begins. */
+  .start {
+    padding-left: calc((100% - var(--lane)) / 2 - 0.4rem);
+  }
+
+  .checkpoints {
+    gap: 0;
+  }
+
+  .checkpoint {
+    grid-template-columns: minmax(0, 1fr) var(--lane) minmax(0, 1fr);
+    column-gap: var(--space-5);
+  }
+
+  .checkpoint + .checkpoint {
+    margin-top: calc(var(--space-8) * -0.6);
+  }
+
+  .checkpoint[data-side='left'] .node {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: start;
+  }
+
+  .checkpoint[data-side='right'] .node {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: end;
+  }
+
+  .checkpoint:nth-child(even) .node {
+    translate: none;
+  }
+
+  .checkpoint[data-side='left'] .card {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .checkpoint[data-side='right'] .card {
+    grid-column: 3;
+    grid-row: 1;
+  }
+
+  .checkpoint[data-kind='current'] {
+    grid-template-columns: minmax(0, 1fr) var(--lane) minmax(0, 1fr);
+  }
+}
+
+/* ——— After the map ——— */
+
+.learning {
+  margin-top: var(--space-7);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--border);
+  font-size: var(--step--1);
+  color: var(--text-muted);
+}
+
+.learning a {
+  color: var(--text);
+}
+
+.learning a:hover {
+  color: var(--accent);
+}
+
+.activity {
+  display: grid;
+  gap: var(--space-4);
+  margin-top: var(--space-6);
+  padding: var(--space-5);
+  background: var(--bg-sunken);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-m);
+}
+
+.activityTitle {
+  font-size: var(--step-0);
+  letter-spacing: -0.01em;
+}
+
+.activityGrid {
+  display: grid;
+  gap: var(--space-6);
+}
+
+.activityLabel {
+  margin-bottom: var(--space-3);
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  color: var(--text-muted);
+}
+
+.prompt {
+  color: var(--accent);
+}
+
+.commits {
+  display: grid;
+  gap: var(--space-1);
+}
+
+.commit {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: var(--space-3);
+  padding: var(--space-2);
+  margin-inline: calc(var(--space-2) * -1);
+  border-radius: var(--radius-s);
+  text-decoration: none;
+  transition: background-color var(--duration-fast) ease;
+}
+
+.commit:hover {
+  background: var(--surface);
+}
+
+.sha {
+  grid-row: span 2;
+  font-family: var(--font-mono);
+  font-size: var(--step--2);
+  color: var(--accent);
+  line-height: 1.7;
+}
+
+.message {
+  font-family: var(--font-mono);
+  font-size: var(--step--2);
+  line-height: 1.55;
+  overflow-wrap: anywhere;
+}
+
+.commitMeta {
+  font-size: var(--step--2);
+  color: var(--text-faint);
+}
+
+.years {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.yearRow {
+  display: grid;
+  grid-template-columns: 3rem 1fr;
+  gap: var(--space-3);
+  align-items: start;
+}
+
+.yearRow dt {
+  font-family: var(--font-mono);
+  font-size: var(--step--2);
+  color: var(--text-muted);
+  line-height: 1.2;
+}
+
+.yearRow dd {
+  margin: 0;
+  display: grid;
+  gap: var(--space-1);
+}
+
+.bar {
+  display: flex;
+  gap: 2px;
+  height: 8px;
+}
+
+.segment {
+  flex-basis: 0;
+  border-radius: 2px;
+  background: var(--border-strong);
+}
+
+.segment[data-language='TypeScript'] {
+  background: var(--accent);
+}
+
+.segment[data-language='JavaScript'] {
+  background: color-mix(in srgb, var(--accent) 55%, var(--bg));
+}
+
+.segment[data-language='Python'] {
+  background: var(--layer-client);
+}
+
+.segment[data-language='Go'] {
+  background: var(--layer-data);
+}
+
+.legend {
+  font-family: var(--font-mono);
+  font-size: var(--step--2);
+  color: var(--text-faint);
+}
+
+.synced {
+  padding-top: var(--space-4);
+  font-size: var(--step--2);
+  color: var(--text-faint);
+}
+
+@media (min-width: 64rem) {
+  .activityGrid {
+    grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+    gap: var(--space-8);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fill {
+    transition: none;
+  }
+}

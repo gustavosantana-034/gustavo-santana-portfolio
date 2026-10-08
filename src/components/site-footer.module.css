@@ -1,0 +1,75 @@
+.footer {
+  border-top: 1px solid var(--border);
+  background: color-mix(in srgb, var(--bg-sunken) 75%, transparent);
+}
+
+.inner {
+  display: grid;
+  gap: var(--space-5);
+  padding-block: var(--space-7) var(--space-6);
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.signature {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  max-width: 34rem;
+  font-size: var(--step--1);
+  color: var(--text-muted);
+}
+
+.mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  min-width: 1.75rem;
+  height: 1.75rem;
+  padding-inline: 0.35rem;
+  border-radius: var(--radius-s);
+  background: var(--text);
+  color: var(--bg);
+  font-family: var(--font-logo);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+
+.mark span {
+  color: var(--accent);
+}
+
+.top {
+  font-size: var(--step--1);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+
+.top:hover {
+  color: var(--accent);
+}
+
+.meta {
+  font-family: var(--font-mono);
+  font-size: var(--step--2);
+  color: var(--text-faint);
+  line-height: 2.2;
+}
+
+.eof {
+  padding-top: var(--space-5);
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: var(--step--2);
+  color: var(--text-faint);
+  letter-spacing: 0.1em;
+}

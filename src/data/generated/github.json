@@ -1,0 +1,108 @@
+{
+  "syncedAt": "2026-10-08T02:25:46.835Z",
+  "profile": {
+    "login": "gustavosantana-034",
+    "url": "https://github.com/gustavosantana-034",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/151932583?v=4",
+    "publicRepos": 18,
+    "followers": 44,
+    "memberSince": "2023-11-24T12:39:38Z"
+  },
+  "languagesByYear": [
+    {
+      "year": 2024,
+      "languages": [
+        {
+          "name": "Python",
+          "repos": 6
+        },
+        {
+          "name": "CSS",
+          "repos": 1
+        },
+        {
+          "name": "JavaScript",
+          "repos": 1
+        },
+        {
+          "name": "TypeScript",
+          "repos": 1
+        }
+      ]
+    },
+    {
+      "year": 2025,
+      "languages": [
+        {
+          "name": "TypeScript",
+          "repos": 2
+        },
+        {
+          "name": "JavaScript",
+          "repos": 2
+        }
+      ]
+    },
+    {
+      "year": 2026,
+      "languages": [
+        {
+          "name": "Go",
+          "repos": 1
+        },
+        {
+          "name": "JavaScript",
+          "repos": 1
+        },
+        {
+          "name": "TypeScript",
+          "repos": 1
+        }
+      ]
+    }
+  ],
+  "recentCommits": [
+    {
+      "repo": "GYM-API",
+      "sha": "71ef813",
+      "message": "fix(frontend): never default to localhost in production builds",
+      "date": "2026-10-07T23:03:32Z",
+      "url": "https://github.com/gustavosantana-034/GYM-API/commit/71ef8139f430ce80089427ccb64030b7ec026fd7"
+    },
+    {
+      "repo": "GYM-API",
+      "sha": "3b91290",
+      "message": "build(backend): print connection diagnostics when migrations fail",
+      "date": "2026-10-07T22:54:23Z",
+      "url": "https://github.com/gustavosantana-034/GYM-API/commit/3b91290c6047c09a943d49658e9d813a33dcfdc1"
+    },
+    {
+      "repo": "GYM-API",
+      "sha": "00617a1",
+      "message": "fix(backend): survive Neon cold starts during deploy",
+      "date": "2026-10-07T22:50:12Z",
+      "url": "https://github.com/gustavosantana-034/GYM-API/commit/00617a168ec090e159ac34e0397ee9a443a34df4"
+    },
+    {
+      "repo": "fc2.0-ci-go",
+      "sha": "a7d0653",
+      "message": "ci: Change event to pull request branch develop (#1)",
+      "date": "2026-06-24T19:23:26Z",
+      "url": "https://github.com/gustavosantana-034/fc2.0-ci-go/commit/a7d06532600d19a26f691e47862a2dd311d1266d"
+    },
+    {
+      "repo": "fc2.0-ci-go",
+      "sha": "fd98d71",
+      "message": "fix: Added a new check application on yaml file",
+      "date": "2026-06-24T19:02:42Z",
+      "url": "https://github.com/gustavosantana-034/fc2.0-ci-go/commit/fd98d714dad5748cc379a754be0c97cee59e55da"
+    },
+    {
+      "repo": "fc2.0-ci-go",
+      "sha": "7be4141",
+      "message": "fix: Fix test wich was not passing Sum function",
+      "date": "2026-06-24T14:07:37Z",
+      "url": "https://github.com/gustavosantana-034/fc2.0-ci-go/commit/7be414113b3a1dfa81eb629a1461ab6d526fdaa1"
+    }
+  ]
+}

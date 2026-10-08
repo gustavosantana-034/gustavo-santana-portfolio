@@ -1,0 +1,137 @@
+.toastRegion {
+  position: fixed;
+  inset-inline-start: var(--gutter);
+  inset-block-end: max(var(--space-4), env(safe-area-inset-bottom));
+  z-index: 60;
+  pointer-events: none;
+}
+
+.toast {
+  display: flex;
+  gap: var(--space-3);
+  align-items: flex-start;
+  max-width: min(22rem, calc(100vw - var(--gutter) * 2));
+  padding: var(--space-3) var(--space-4);
+  background: var(--surface-raised);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-m);
+  box-shadow: var(--shadow-m);
+  animation: toast-in 320ms var(--ease-out) both;
+}
+
+.toast[data-leaving='true'] {
+  animation: toast-out 240ms ease-in both;
+}
+
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+}
+
+@keyframes toast-out {
+  to {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}
+
+.toastIcon {
+  color: var(--accent);
+  font-size: 0.8rem;
+  line-height: 1.6rem;
+}
+
+.toastLabel,
+.toastTitle,
+.toastDescription {
+  display: block;
+}
+
+.toastLabel {
+  font-family: var(--font-mono);
+  font-size: var(--step--2);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+.toastTitle {
+  font-weight: 600;
+  font-size: var(--step-0);
+}
+
+.toastDescription {
+  font-size: var(--step--1);
+  color: var(--text-muted);
+  line-height: 1.45;
+}
+
+.panel {
+  position: relative;
+}
+
+.counter {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-1) 0;
+  background: none;
+  border: 0;
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  color: var(--text-muted);
+}
+
+.counter:hover {
+  color: var(--text);
+}
+
+.counter span {
+  color: var(--accent);
+  font-size: 0.7em;
+}
+
+.list {
+  display: grid;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+  padding: var(--space-4);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-m);
+  max-width: 26rem;
+}
+
+.item {
+  display: flex;
+  gap: var(--space-3);
+  font-size: var(--step--1);
+  line-height: 1.45;
+}
+
+.itemIcon {
+  color: var(--text-faint);
+  font-size: 0.75rem;
+  line-height: 1.45rem;
+}
+
+.item[data-unlocked='true'] .itemIcon {
+  color: var(--accent);
+}
+
+.itemTitle {
+  display: block;
+  font-weight: 600;
+}
+
+.item[data-unlocked='false'] .itemTitle {
+  font-family: var(--font-mono);
+  color: var(--text-faint);
+}
+
+.itemText {
+  display: block;
+  color: var(--text-muted);
+}

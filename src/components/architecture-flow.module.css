@@ -1,0 +1,185 @@
+.figure {
+  position: relative;
+  padding: var(--space-5) var(--space-4);
+  background: var(--bg-sunken);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-m);
+}
+
+.flow {
+  position: relative;
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: var(--space-3);
+}
+
+.node {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: var(--space-3);
+  align-items: baseline;
+  padding: var(--space-3) var(--space-4);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-top: 2px solid var(--layer-color);
+  border-radius: var(--radius-s);
+}
+
+.node[data-layer='client'] {
+  --layer-color: var(--layer-client);
+}
+.node[data-layer='edge'] {
+  --layer-color: var(--layer-edge);
+}
+.node[data-layer='application'] {
+  --layer-color: var(--layer-application);
+}
+.node[data-layer='domain'] {
+  --layer-color: var(--layer-domain);
+}
+.node[data-layer='data'] {
+  --layer-color: var(--layer-data);
+}
+.node[data-layer='external'] {
+  --layer-color: var(--layer-external);
+}
+
+.step {
+  grid-row: span 2;
+  font-family: var(--font-mono);
+  font-size: var(--step--2);
+  color: var(--text-faint);
+}
+
+.label {
+  font-weight: 600;
+  font-size: var(--step--1);
+}
+
+.detail {
+  font-family: var(--font-mono);
+  font-size: var(--step--2);
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+/* The line the packet travels on. Vertical by default (mobile first). */
+.track {
+  position: absolute;
+  top: var(--space-6);
+  bottom: var(--space-6);
+  left: calc(var(--space-4) + 1.05rem);
+  width: 1px;
+  background: repeating-linear-gradient(to bottom, var(--border-strong) 0 3px, transparent 3px 7px);
+}
+
+.packetRail {
+  position: absolute;
+  inset: 0;
+  transform: translateY(-100%);
+  animation: travel-y 3.6s var(--ease-in-out) infinite;
+  animation-play-state: paused;
+}
+
+.packet {
+  position: absolute;
+  bottom: 0;
+  left: -3px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 20%, transparent);
+}
+
+.figure[data-revealed='true'] .packetRail,
+:global(html:not(.js-reveal)) .packetRail {
+  animation-play-state: running;
+}
+
+@keyframes travel-y {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  8% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+}
+
+@keyframes travel-x {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  8% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 0;
+  }
+}
+
+@media (min-width: 48rem) {
+  .flow {
+    grid-template-columns: repeat(var(--nodes), minmax(0, 1fr));
+    gap: var(--space-4);
+  }
+
+  .node {
+    grid-template-columns: 1fr;
+    align-content: start;
+    row-gap: var(--space-1);
+  }
+
+  .step {
+    grid-row: auto;
+  }
+
+  .track {
+    /* Runs through the middle of the nodes: the packet is hidden while it is
+       "inside" a layer and shows up again between them. */
+    top: 50%;
+    bottom: auto;
+    left: var(--space-5);
+    right: var(--space-5);
+    width: auto;
+    height: 1px;
+    background: repeating-linear-gradient(
+      to right,
+      var(--border-strong) 0 3px,
+      transparent 3px 7px
+    );
+  }
+
+  .packetRail {
+    transform: translateX(-100%);
+    animation-name: travel-x;
+  }
+
+  .packet {
+    top: -3px;
+    bottom: auto;
+    left: auto;
+    right: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .packetRail {
+    display: none;
+  }
+}

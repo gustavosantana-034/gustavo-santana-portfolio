@@ -1,0 +1,121 @@
+.section {
+  padding-block: var(--space-9);
+}
+
+.sides {
+  display: grid;
+  gap: var(--space-5);
+}
+
+.side {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding: clamp(1.25rem, 0.8rem + 2vw, 2.25rem);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-l);
+  background: var(--surface);
+}
+
+/* The side quest card is drawn like a page from a notebook: ruled lines,
+   a margin rule, slightly warmer. */
+.side[data-side='side'] {
+  background:
+    linear-gradient(
+      to right,
+      transparent 1.6rem,
+      color-mix(in srgb, var(--accent) 35%, transparent) 1.6rem 1.66rem,
+      transparent 1.66rem
+    ),
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0 1.95rem,
+      color-mix(in srgb, var(--border) 70%, transparent) 1.95rem 2rem
+    ),
+    var(--bg);
+  border-style: dashed;
+}
+
+.photo {
+  width: 5.5rem;
+  height: 5.5rem;
+  border-radius: var(--radius-m);
+  border: 1px solid var(--border-strong);
+  object-fit: cover;
+  background: #000;
+}
+
+.label {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  color: var(--text-muted);
+}
+
+.labelIcon {
+  color: var(--accent);
+  font-size: 0.7em;
+}
+
+.title {
+  font-size: var(--step-2);
+  letter-spacing: -0.03em;
+}
+
+.side[data-side='side'] .title {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  font-size: calc(var(--step-2) * 1.1);
+}
+
+.paragraph {
+  color: var(--text-muted);
+  max-width: 34rem;
+}
+
+.now {
+  display: grid;
+  gap: var(--space-2);
+  margin-top: auto;
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--border);
+}
+
+.now div {
+  display: grid;
+  grid-template-columns: 6.5rem 1fr;
+  gap: var(--space-3);
+  font-size: var(--step--1);
+}
+
+.now dt {
+  font-family: var(--font-mono);
+  font-size: var(--step--2);
+  color: var(--text-faint);
+  line-height: 2;
+}
+
+.now dd {
+  margin: 0;
+}
+
+@media (min-width: 48rem) {
+  .sides {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .side[data-side='side'] {
+    padding-left: 2.6rem;
+  }
+}
+
+@media (max-width: 47.99rem) {
+  .side[data-side='side'] {
+    padding-left: 2.4rem;
+  }
+}

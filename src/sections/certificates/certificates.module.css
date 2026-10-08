@@ -1,0 +1,237 @@
+.section {
+  padding-block: var(--space-9);
+}
+
+/* ——— Featured course ——— */
+
+.featured {
+  display: grid;
+  gap: var(--space-6);
+  padding: clamp(1.5rem, 1rem + 2.5vw, 2.75rem);
+  background: var(--surface);
+  border: 1px solid var(--border-strong);
+  border-top: 3px solid var(--accent);
+  border-radius: var(--radius-l);
+  box-shadow: var(--shadow-m);
+}
+
+.featuredHead {
+  display: grid;
+  align-content: start;
+  gap: var(--space-3);
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  justify-self: start;
+  padding: 0.2rem 0.65rem;
+  font-family: var(--font-mono);
+  font-size: var(--step--2);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+  border: 1px solid color-mix(in srgb, var(--accent) 45%, transparent);
+  border-radius: 999px;
+}
+
+.featuredTitle {
+  font-size: var(--step-3);
+  letter-spacing: -0.04em;
+}
+
+.featuredMeta {
+  font-size: var(--step--1);
+  color: var(--text-muted);
+}
+
+.featuredMeta strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.status {
+  color: var(--ok);
+}
+
+.featuredBody {
+  font-size: var(--step-0);
+  color: var(--text-muted);
+  max-width: 34rem;
+}
+
+.modules {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.modulesLabel {
+  font-family: var(--font-mono);
+  font-size: var(--step--2);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+.moduleList {
+  display: grid;
+  gap: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: module;
+}
+
+.moduleList li {
+  counter-increment: module;
+  display: grid;
+  grid-template-columns: 2rem 1fr;
+  padding-block: 0.45rem;
+  border-bottom: 1px dashed var(--border);
+  font-size: var(--step--1);
+  line-height: 1.4;
+}
+
+.moduleList li::before {
+  content: counter(module, decimal-leading-zero);
+  font-family: var(--font-mono);
+  font-size: var(--step--2);
+  color: var(--accent);
+  line-height: 1.7;
+}
+
+/* ——— Certificate list ——— */
+
+.listHeader {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-3);
+  margin-top: var(--space-8);
+  padding-bottom: var(--space-3);
+  border-bottom: 1px solid var(--border);
+}
+
+.listTitle {
+  font-size: var(--step-1);
+  letter-spacing: -0.02em;
+}
+
+.count {
+  margin-left: var(--space-1);
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  font-weight: 400;
+  color: var(--accent);
+}
+
+.repoLink {
+  font-size: var(--step--1);
+  color: var(--text-muted);
+}
+
+.repoLink:hover {
+  color: var(--accent);
+}
+
+.list {
+  display: grid;
+}
+
+.row {
+  display: grid;
+  gap: var(--space-2);
+  padding-block: var(--space-5);
+  border-bottom: 1px solid var(--border);
+}
+
+.issuer {
+  font-family: var(--font-mono);
+  font-size: var(--step--2);
+  color: var(--accent);
+  letter-spacing: 0.02em;
+}
+
+.rowBody {
+  display: grid;
+  gap: var(--space-2);
+  min-width: 0;
+}
+
+.rowTitle {
+  font-size: var(--step-0);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.35;
+}
+
+.instructor {
+  margin-top: -0.25rem;
+  font-size: var(--step--1);
+  color: var(--text-muted);
+}
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+}
+
+.skills li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.05rem 0.5rem;
+  font-family: var(--font-mono);
+  font-size: var(--step--2);
+  background: var(--bg-sunken);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-s);
+  color: var(--text-muted);
+}
+
+.view {
+  justify-self: start;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 0.4rem 0.9rem;
+  font-size: var(--step--1);
+  white-space: nowrap;
+  text-decoration: none;
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  transition:
+    border-color var(--duration-fast) ease,
+    color var(--duration-fast) ease;
+}
+
+.view:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+@media (min-width: 48rem) {
+  .row {
+    grid-template-columns: 10rem minmax(0, 1fr) auto;
+    align-items: start;
+    gap: var(--space-5);
+  }
+
+  .issuer {
+    line-height: 2;
+  }
+}
+
+@media (min-width: 64rem) {
+  .featured {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+    gap: var(--space-8);
+  }
+
+  .moduleList {
+    grid-template-columns: 1fr 1fr;
+    column-gap: var(--space-5);
+  }
+}

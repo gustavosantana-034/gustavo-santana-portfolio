@@ -1,0 +1,152 @@
+/*
+ * Design tokens.
+ *
+ * Two themes designed side by side, not one inverted into the other:
+ * - "papel" (light): warm paper, ink-black text, a vermilion signal.
+ * - "noite" (dark): warm graphite, not pure black, the same signal turned up.
+ *
+ * The single accent is used like a highlighter in a technical book: for the
+ * one thing that should be noticed, never for decoration.
+ */
+
+:root {
+  /* Type */
+  --font-sans: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, 'SFMono-Regular', monospace;
+  --font-serif: var(--font-instrument-serif), ui-serif, Georgia, serif;
+  --font-logo: var(--font-jetbrains-mono), var(--font-mono);
+
+  --step--2: clamp(0.72rem, 0.7rem + 0.08vw, 0.76rem);
+  --step--1: clamp(0.8rem, 0.78rem + 0.1vw, 0.86rem);
+  --step-0: clamp(1rem, 0.96rem + 0.2vw, 1.0625rem);
+  --step-1: clamp(1.15rem, 1.08rem + 0.35vw, 1.35rem);
+  --step-2: clamp(1.45rem, 1.3rem + 0.75vw, 1.9rem);
+  --step-3: clamp(1.9rem, 1.55rem + 1.6vw, 2.9rem);
+  --step-4: clamp(2.55rem, 1.7rem + 4.2vw, 5.4rem);
+
+  /* Space */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4.5rem;
+  --space-9: clamp(4rem, 2.6rem + 4vw, 6.5rem);
+
+  --gutter: clamp(1rem, 0.5rem + 2.5vw, 2.5rem);
+  --content: 74rem;
+
+  /* Shape */
+  --radius-s: 4px;
+  --radius-m: 8px;
+  --radius-l: 14px;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --duration-fast: 160ms;
+  --duration: 320ms;
+  --duration-slow: 640ms;
+
+  color-scheme: light;
+  /* Papel — light: warm paper at the edges brightening to almost white in a
+     soft glow at the middle of the viewport, the light twin of the dark
+     theme's red glow. */
+  --backdrop:
+    radial-gradient(
+      120% 70% at 50% 50%,
+      rgb(255 254 251 / 1) 0%,
+      rgb(255 252 247 / 0.85) 20%,
+      rgb(252 248 241 / 0.55) 42%,
+      rgb(246 240 230 / 0.25) 68%,
+      transparent 100%
+    ),
+    linear-gradient(
+      180deg,
+      #e8dece 0%,
+      #efe7da 20%,
+      #f7f2e9 40%,
+      #fbf8f2 50%,
+      #f7f2e9 60%,
+      #efe7da 80%,
+      #e8dece 100%
+    );
+
+  /* Papel — light */
+  --bg: #f3f0e8;
+  --bg-sunken: #ebe7dc;
+  --surface: #fbfaf6;
+  --surface-raised: #ffffff;
+  --border: #dcd6c8;
+  --border-strong: #b9b1a0;
+  --text: #1a1915;
+  --text-muted: #57534a;
+  --text-faint: #5f5a4f;
+  --accent: #a8300c;
+  --accent-hover: #8c2809;
+  --accent-soft: #f4dccf;
+  --accent-ink: #fffaf5;
+  --ok: #1f6646;
+  --ok-soft: #d7eadf;
+  --error: #b42318;
+  --error-soft: #f6dcd8;
+  --selection: #f1c8b4;
+  --shadow-s: 0 1px 0 rgb(26 25 21 / 0.04), 0 1px 2px rgb(26 25 21 / 0.06);
+  --shadow-m: 0 1px 0 rgb(26 25 21 / 0.04), 0 12px 32px -16px rgb(26 25 21 / 0.22);
+  --focus-ring: 0 0 0 2px var(--bg), 0 0 0 4px var(--accent);
+
+  /* Layer colors used by architecture diagrams */
+  --layer-client: #3f5f8a;
+  --layer-edge: #8a5a1f;
+  --layer-application: #5b4f8f;
+  --layer-domain: var(--accent);
+  --layer-data: #24704f;
+  --layer-external: #6b6b62;
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+
+  /* Noite — dark: near-black with a soft, diffuse red glow in the middle of
+     the viewport (see body::before). Surfaces are near-black with a red cast so
+     cards read as part of the same light. */
+  --backdrop:
+    radial-gradient(
+      140% 75% at 50% 52%,
+      rgb(120 12 10 / 0.42) 0%,
+      rgb(100 10 8 / 0.3) 22%,
+      rgb(70 6 6 / 0.18) 45%,
+      rgb(40 4 4 / 0.08) 70%,
+      transparent 100%
+    ),
+    linear-gradient(180deg, #040202 0%, #0b0404 25%, #140606 50%, #0b0404 75%, #040202 100%);
+  --bg: #0a0505;
+  --bg-sunken: #0d0707;
+  --surface: #140a0a;
+  --surface-raised: #1d1010;
+  --border: #3a2222;
+  --border-strong: #5e3a3a;
+  --text: #f2ece6;
+  --text-muted: #d6c9c2;
+  --text-faint: #c0aaa2;
+  --accent: #ff8a6a;
+  --accent-hover: #ffa080;
+  --accent-soft: #4a1c14;
+  --accent-ink: #1a0805;
+  --ok: #62d3a1;
+  --ok-soft: #16301f;
+  --error: #ff8a7a;
+  --error-soft: #3a1a16;
+  --selection: #6a2216;
+  --shadow-s: 0 1px 0 rgb(0 0 0 / 0.4);
+  --shadow-m: 0 1px 0 rgb(255 255 255 / 0.03) inset, 0 18px 40px -20px rgb(0 0 0 / 0.8);
+
+  --layer-client: #8fb1e0;
+  --layer-edge: #e0ae6a;
+  --layer-application: #b3a6f0;
+  --layer-domain: var(--accent);
+  --layer-data: #62d3a1;
+  --layer-external: #b8aca6;
+}

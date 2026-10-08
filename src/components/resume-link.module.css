@@ -1,0 +1,82 @@
+.compact,
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  border-radius: 999px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition:
+    background-color var(--duration-fast) ease,
+    border-color var(--duration-fast) ease,
+    color var(--duration-fast) ease;
+}
+
+.compact {
+  height: 2.5rem;
+  padding-inline: 0.9rem;
+  border: 1px solid var(--border-strong);
+  font-size: var(--step--1);
+}
+
+.compact:hover {
+  border-color: var(--text);
+}
+
+.button {
+  padding: 0.8rem 1.3rem;
+  background: var(--text);
+  color: var(--bg);
+  font-weight: 560;
+}
+
+.button:hover {
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 7.5rem 1fr auto;
+  gap: var(--space-3);
+  align-items: baseline;
+  padding-block: var(--space-4);
+  border-bottom: 1px solid var(--border);
+  text-decoration: none;
+}
+
+.rowLabel {
+  font-weight: 560;
+}
+
+.rowValue {
+  font-family: var(--font-mono);
+  font-size: var(--step--2);
+  color: var(--text-muted);
+}
+
+.rowArrow {
+  color: var(--text-faint);
+}
+
+.row:hover .rowArrow {
+  color: var(--accent);
+}
+
+/* Development only: the PDF for this locale has not been added yet. */
+.missing {
+  margin-left: var(--space-2);
+  padding: 0 0.35rem;
+  border: 1px dashed var(--error);
+  border-radius: var(--radius-s);
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 400;
+  color: var(--error);
+}
+
+.row .missing {
+  grid-column: 1 / -1;
+  justify-self: start;
+  margin-left: 0;
+}
